@@ -1,0 +1,20 @@
+
+\usepackage{tikz}
+
+\pgfkeys{/event/.is family}
+
+\newcommand{\defEventKey}[3]{%
+  \pgfkeys{/event/#1/#2/.initial=#3}%
+}
+
+\newcommand{\defineEvent}[5]{%
+  \defEventKey{#1}{position}{#2}%
+  \defEventKey{#1}{workplace}{#3}%
+  \defEventKey{#1}{date}{#4}%
+  \defEventKey{#1}{description}{#5}%
+}
+
+\newcommand{\jobb}[2]{%
+  \pgfkeysvalueof{/event/#1/#2}%
+}
+
